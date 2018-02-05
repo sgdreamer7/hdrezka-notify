@@ -1,4 +1,4 @@
-const { apikey, chatid } = require('../api.keys')
+const { apikey, chatid } = require('../telegram.api.keys')
 
 module.exports = {
   notify: function (video) {
