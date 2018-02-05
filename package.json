@@ -1,0 +1,27 @@
+{
+  "name": "hdrezka-notify",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=production node src/index.js config/config.json",
+    "dev": "NODE_ENV=development nodemon src/index.js config/config.json",
+    "debug": "DEBUG=* npm run dev",
+    "test": "npm run mocha",
+    "mocha": "NODE_ENV=test nyc --reporter=html --reporter=text mocha test/ --recursive"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1",
+    "nyc": "^11.2.1"
+  },
+  "dependencies": {
+    "log4js": "^2.3.4",
+    "mongoose": "^4.12.0",
+    "nconf": "^0.8.5",
+    "nodemailer": "^4.4.0",
+    "path": "^0.12.7",
+    "puppeteer": "^0.13.0",
+    "request": "^2.83.0",
+    "require-tree": "^1.1.1"
+  }
+}

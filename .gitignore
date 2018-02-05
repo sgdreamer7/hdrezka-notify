@@ -1,0 +1,9 @@
+.vscodfe
+config
+coverage
+node_modules
+package-lock.json
+.private
+.nyc_output
+src/telegram.api.keys.js
+config/config.json
