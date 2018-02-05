@@ -19,7 +19,7 @@ module.exports = (function () {
             from: username,
             to: toEmail,
             subject: `New video exists \'${video.title}\' [season ${video.season},episode ${video.episode}] from \'${video.publisher}\'`,
-            text: `New video exists \'${video.title}\' [season ${video.season},episode ${video.episode}] from \'${video.publisher}\'.`
+            text: `New video exists \'${video.title}\' [season ${video.season},episode ${video.episode}] from \'${video.publisher}\',  \'${video.href}\'.`
           }
 
           transporter.sendMail(mailOptions, function (error, info) {

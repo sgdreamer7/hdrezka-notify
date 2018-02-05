@@ -28,14 +28,14 @@ async function videoExists(video) {
 async function fetchVideoData() {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await console.log("fetching videos...")
+  await console.log('fetching videos...')
   await page.goto('http://hdrezka.ag/')
-  await console.log("processing data...")
-  const blocks = await page.$$(".b-seriesupdate__block_list_item_inner")
+  await console.log('processing data...')
+  const blocks = await page.$$('.b-seriesupdate__block_list_item_inner')
   const videos = await Promise.all(blocks.map(block => mapBlock(block, page)))
-  await console.log("checking videos...")
+  await console.log('checking videos...')
   await checkAllVideos(videos)
-  await console.log("finished")
+  await console.log('finished')
   await browser.close()
 }
 
@@ -44,20 +44,21 @@ async function checkAllVideos(videos) {
 }
 
 async function mapBlock(block, page) {
-  const titleElement = await block.$(".cell-1 > a")
+  const titleElement = await block.$('.cell-1 > a')
   const title = await page.evaluate(el => el.innerHTML, titleElement)
-  const seasonElement = await block.$(".season")
+  const href = await page.evaluate(el => el.href, titleElement)
+  const seasonElement = await block.$('.season')
   var seasonText = await page.evaluate(el => el.innerHTML, seasonElement)
-  const episodeElement = await block.$(".cell-2")
+  const episodeElement = await block.$('.cell-2')
   var episodeText = await page.evaluate(el => el.firstChild.nodeValue, episodeElement)
-  const publisherElement = await block.$(".cell-2 > i")
-  var publisher = publisherElement == null ? "()" : await page.evaluate(el => el.innerHTML, publisherElement)
+  const publisherElement = await block.$('.cell-2 > i')
+  var publisher = publisherElement == null ? '()' : await page.evaluate(el => el.innerHTML, publisherElement)
   seasonText = seasonText.replace('(', '').replace(' сезон)', '')
   episodeText = episodeText.replace(' серия ', '')
   publisher = publisher.replace('(', '').replace(')', '')
   const season = Number.parseInt(seasonText)
   const episode = Number.parseInt(episodeText)
-  return { title, season, episode, publisher }
+  return { title, season, episode, publisher, href }
 }
 
 module.exports = {
