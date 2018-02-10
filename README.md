@@ -31,16 +31,17 @@ Below is the example **config.json**:
     "db": "mongodb://localhost/hdrezka-notify"
   },
   "notifiersConfig": {
-    "gmail": {
-      "username": "<sender name>@gmail.com",
-      "password": "<sender password>",
-      "email": "<receiver name>@gmail.com"
+    "email": {
+      "email": "vns.scherbina@gmail.com"
     },
-    "console": {}
+    "console": {},
+    "telegram": {},
+    "email": {}
   },
   "notifiers": [
-    "gmail",
-    "console"
+    "console",
+    "telegram",
+    "email"
   ],
   "filters": [
     "Флэш",
@@ -56,7 +57,10 @@ Below is the example **config.json**:
     "Вне времени",
     "Игра престолов",
     "Американские боги",
-    "По ту сторону"
+    "По ту сторону",
+    "Кремниевая долина / Силиконовая долина",
+    "Секретные материалы: возрождение",
+    "Видоизмененный углерод"
   ]
 }
 ```

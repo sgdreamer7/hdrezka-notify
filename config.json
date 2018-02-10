@@ -7,7 +7,8 @@
       "email": "vns.scherbina@gmail.com"
     },
     "console": {},
-    "telegram": {}
+    "telegram": {},
+    "email": {}
   },
   "notifiers": [
     "console",
