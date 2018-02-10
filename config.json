@@ -3,9 +3,7 @@
     "db": "mongodb://localhost/hdrezka-notify"
   },
   "notifiersConfig": {
-    "gmail": {
-      "username": "<user name>@gmail.com",
-      "password": "<password>",
+    "email": {
       "email": "vns.scherbina@gmail.com"
     },
     "console": {},
@@ -13,7 +11,8 @@
   },
   "notifiers": [
     "console",
-    "telegram"
+    "telegram",
+    "email"
   ],
   "filters": [
     "Флэш",
