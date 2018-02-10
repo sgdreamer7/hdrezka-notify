@@ -13,8 +13,7 @@ And notifying in console and by email.
   * NodeJS >=7.10.1;
   * mongoose;
   * nconf;
-  * node-cron;
-  * nodemailer;
+  * sendmail;
   * puppeteer;
   * MongoDB.
 
